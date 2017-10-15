@@ -1,0 +1,142 @@
+public class Hog {
+    
+    public static void main(String[] args){
+        int computerTotalScore, humanTotalScore, computerRoundTotal,
+                humanRoundTotal;
+          
+        computerTotalScore = 0;
+        humanTotalScore =0;
+        
+        computerRoundTotal =0;
+        humanRoundTotal =0;
+        
+        String playerOne, playerTwo;
+        //currentplayer ="random player";
+        
+        playerOne = "computer";
+        playerTwo ="human";
+         String answer;
+         
+         PairofDie  twoDice = new PairofDie();
+         
+         Scanner input = new Scanner(System.in);
+        
+         
+         Round computerRound = new Round(playerOne, computerTotalScore);
+         Round humanRound = new Round(playerTwo, humanTotalScore);
+         
+ 
+        computerTotalScore = 0;
+     
+        
+ //System.out.println(computerRound.toString());
+ 
+        while(computerTotalScore <50 && humanTotalScore <50){
+          //displays the current round and score
+          //@ "->" indicates whos turn is it
+            System.out.println("->"+computerRound.getPlayer()+":" + " "+ computerTotalScore + " "
+          + humanRound.getPlayer()+":" + " "+ humanTotalScore );
+            
+          
+          twoDice.rollDice();
+             computerRoundTotal = computerRound.getRoundScore();
+            System.out.println(twoDice.toString());
+          
+           //The turn switches to human player when the computer rolls a 1 on either dice.
+          //or when the computer round reaches 20
+          if(twoDice.rolledOne()||computerRoundTotal > 20){
+              System.out.println("Busted");
+              
+           //Human's turn to roll
+               System.out.println(computerRound.getPlayer()+":" + " "+ computerTotalScore + "->"
+          + humanRound.getPlayer()+":" + " "+ humanTotalScore );
+              
+               twoDice.rollDice();
+              
+               //if human roll a 1, then it is the computer's turn
+               if(twoDice.rolledOne()){
+                  System.out.println("Busted");
+                  System.out.println("-->"+computerRound.getPlayer()+":" + " "+ computerTotalScore +" "
+          + humanRound.getPlayer()+":" + " "+ humanTotalScore );
+                  
+                  
+                  twoDice.rollDice();
+            
+                  System.out.println(twoDice.toString());
+           
+            computerRound.addRoundScore(twoDice.sumDice());
+             
+           computerTotalScore = computerRound.getPotentialTotal();
+            
+             System.out.println(computerRound.toString());
+            
+            computerRoundTotal = computerRound.getRoundScore();
+              
+               }//bracket for if(twoDice.rolledOne()
+              
+              else{
+                  
+                    System.out.println(twoDice.toString());
+              humanRound.addRoundScore(twoDice.sumDice());
+                  humanTotalScore = humanRound.getPotentialTotal();
+              System.out.println(humanRound.toString());
+              
+              humanRoundTotal = humanRound.getRoundScore();
+              //prompts the human do they want to roll again or not
+              System.out.println("Take another turn(y/n)?");
+              answer =  input.next();
+              
+              while(answer == "y"){
+                  
+                  twoDice.rollDice();
+                    System.out.println(twoDice.toString());
+              humanRound.addRoundScore(twoDice.sumDice());
+                  humanTotalScore = humanRound.getPotentialTotal();
+              System.out.println(humanRound.toString());
+              
+              if(answer=="n"){
+                  twoDice.rollDice();
+                  System.out.println(twoDice.toString());
+                  computerRound.addRoundScore(twoDice.sumDice());
+                  
+                 computerTotalScore = computerRound.getRoundScore();
+                 System.out.println(computerRound.toString());
+              }//bracket for if(answer=="n"
+              else{
+                  return;
+              }
+              
+                  }//bracket for while(answer == "y"
+                  
+              }
+              
+              
+              
+              
+          }
+          
+          else{
+             computerRound.addRoundScore(twoDice.sumDice());
+             computerTotalScore = computerRound.getPotentialTotal();
+            System.out.println(computerRound.toString());
+          }
+          
+  if(computerTotalScore > 50 || humanTotalScore > 50){
+          
+              if(computerTotalScore > humanTotalScore)
+          {
+              System.out.println("Computer wins");
+          } 
+              else{
+                  System.out.println("Human wins");
+              }
+         
+        }        
+
+        
+        
+        
+        }
+    
+   }
+}
