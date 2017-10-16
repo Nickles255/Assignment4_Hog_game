@@ -27,15 +27,18 @@ public class Round
   public String getPlayer()
     {return currentPlayer;}
 
+  //adds rolled score to roundScore and totalScore
   public void addRoundScore(int sumDice)
     {
       roundScore += sumDice;
       totalScore += sumDice;
     }
 
+  //returns only the score for the round
   public int getRoundScore()
     {return roundScore;}
 
+  //returns the total score ie. the round score + the inTotalScore
   public int getPotentialTotal()
     {return totalScore;}
 
@@ -45,7 +48,7 @@ public class Round
   public void setStopInd(boolean indicator)
     {stopInd = indicator;}
 		
-	// Returns string printing potential_total and round_total  
+	// Returns string printing roundScore and totalScore
   public String toString() 
   {
     String result = "Cuurent Round: " + roundScore + "\n" + "Potential Total: " + totalScore; 
