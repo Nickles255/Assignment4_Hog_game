@@ -32,7 +32,7 @@ public class PairOfDie {
   
   public void setDie2(int value){
     currentTotal = currentTotal - die2.getFaceValue();   
-	die2.setFaceValue(value);  
+    die2.setFaceValue(value);  
     currentTotal = currentTotal + die2.getFaceValue();
   }
   
@@ -49,7 +49,7 @@ public class PairOfDie {
     return currentTotal;
   }  
   
-// Returns string representation of sum of roll  
+  // Returns string representation of sum of roll  
   public String toString() {
 	  String result = "Die1: " + die1.getFaceValue() + 
 	                  "; Die2: " + die2.getFaceValue(); 
