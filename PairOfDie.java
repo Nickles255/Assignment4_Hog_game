@@ -55,12 +55,4 @@ public class PairOfDie {
 	                  "; Die2: " + die2.getFaceValue(); 
 	  return result;
   }
-
-  //returns true if one of the die is a 1
-  public boolean rolledOne(){
-    if (die1.getFaceValue() == 1 || die2.getFaceValue() == 1)
-      {return true;}
-    else
-      {return false;}
-  }
 }
