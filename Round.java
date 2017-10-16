@@ -10,44 +10,46 @@
 */
 public class Round
 {
-    // int totalScore;
-    String currentPlayer;
-    int totalScore, roundScore = 0;
-    boolean stopInd = false;
+  // int totalScore;
+  String currentPlayer;
+  int totalScore, roundScore = 0;
+  boolean stopInd = false;
 
-    //-----------------------------------------------------------------
-    //  Constructor: for each round of the game
-    //-----------------------------------------------------------------
-    public Round(String player, int inTotalScore)
-        {
-            currentPlayer = player;
-            totalScore = inTotalScore;
-        }
+  //-----------------------------------------------------------------
+  //  Constructor: for each round of the game
+  //-----------------------------------------------------------------
+  public Round(String player, int inTotalScore)
+    {
+        currentPlayer = player;
+        totalScore = inTotalScore;
+    }
 
-    public String getPlayer()
-        {return currentPlayer;}
+  public String getPlayer()
+    {return currentPlayer;}
 
-    public void addRoundScore(int sumDice)
-        {roundScore += sumDice;
-		        totalScore += sumDice;
-		    }
+  public void addRoundScore(int sumDice)
+    {
+      roundScore += sumDice;
+      totalScore += sumDice;
+    }
 
-    public int getRoundScore()
-        {return roundScore;}
+  public int getRoundScore()
+    {return roundScore;}
 
-    public int getPotentialTotal()
-        {return totalScore;}
+  public int getPotentialTotal()
+    {return totalScore;}
 
-    public boolean getStopInd()
-        {return stopInd;}
+  public boolean getStopInd()
+    {return stopInd;}
 
-    public void setStopInd(boolean indicator)
-        {stopInd = indicator;}
+  public void setStopInd(boolean indicator)
+    {stopInd = indicator;}
 		
 	// Returns string printing potential_total and round_total  
   public String toString() 
-     {String result = "Cuurent Round: " + roundScore + "\n" + 
-	                  "Potential Total: " + totalScore; 
-	 return result;}
+  {
+    String result = "Cuurent Round: " + roundScore + "\n" + "Potential Total: " + totalScore; 
+	   return result;
+  }
    
 }
