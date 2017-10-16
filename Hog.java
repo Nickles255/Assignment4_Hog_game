@@ -92,7 +92,7 @@ public class Hog {
 	   if(myRound.getPlayer() == "Human" && (human_cont == 'n' || myRound.getPotentialTotal() >= 50)) {
 		humanTotalScore = myRound.getPotentialTotal();
 	        myRound.setStopInd(true);
-	   } else {  if(myRound.getRoundScore() >= 20 || myRound.getPotentialTotal() >= 50) {
+ 	   } else {  if(myRound.getPlayer() == "Computer" && (myRound.getRoundScore() >= 20 || myRound.getPotentialTotal() >= 50)) {
 		        computerTotalScore = myRound.getPotentialTotal();
 		        myRound.setStopInd(true);
 	             }
