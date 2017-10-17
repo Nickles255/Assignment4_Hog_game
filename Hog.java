@@ -78,8 +78,7 @@ public class Hog {
         // according to criteria depending on type of player.
         if(myRound.getStopInd() == false){
              myRound.addRoundScore(diePair.sumDice());
-             System.out.println("Round Score: " + myRound.getRoundScore());
-             System.out.println("Potential Score: " + myRound.getPotentialTotal());
+             System.out.println(myRound.toString());
              System.out.println("\n");
 
              if(myRound.getPlayer() == "Human" && myRound.getPotentialTotal() < 50){
@@ -88,12 +87,12 @@ public class Hog {
              }
        
 
-             if((myRound.getPlayer() == "Human" && human_cont == 'n') || 
-                 myRound.getPotentialTotal() >= 50) {
+             if(myRound.getPlayer() == "Human" && (human_cont == 'n' || 
+                 myRound.getPotentialTotal() >= 50)) {
                   humanTotalScore = myRound.getPotentialTotal();
                   myRound.setStopInd(true);
-             } else {if((myRound.getPlayer() == "Computer" && myRound.getRoundScore() >= 20) || 
-                         myRound.getPotentialTotal() >= 50) {
+             } else {if(myRound.getPlayer() == "Computer" && (myRound.getRoundScore() >= 20 || 
+                         myRound.getPotentialTotal() >= 50)) {
                                  computerTotalScore = myRound.getPotentialTotal();
                                  myRound.setStopInd(true);
                      }
