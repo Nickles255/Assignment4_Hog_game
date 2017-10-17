@@ -43,7 +43,7 @@ public class PairOfDice {
     return currentTotal; 
   }  
  
- // will return sum of roll
+  // will return sum of roll
   public int rollDice() {
     die1.roll();
     die2.roll();
@@ -51,10 +51,10 @@ public class PairOfDice {
     return currentTotal;
   }  
   
-// Returns string representation of sum of roll  
+  // Returns string representation of sum of roll  
   public String toString() {
-      String result = "Die1: " + die1.getFaceValue() + 
-                      "; Die2: " + die2.getFaceValue(); 
-      return result;
+    String result = "Die1: " + die1.getFaceValue() + 
+                    "; Die2: " + die2.getFaceValue(); 
+    return result;
   }
 }
