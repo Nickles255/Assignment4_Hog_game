@@ -17,15 +17,15 @@ public class PairOfDice {
   public PairOfDice() {
     currentTotal = 2;
 	die1.setFaceValue(1);
-	die2.setFaceValue(2);
+	die2.setFaceValue(1);
   }
 
-  public int getDie1() {
-    return die1.getFaceValue();
+  public Die getDie1() {
+    return die1;
   }
 
-  public int getDie2(){
-    return die2.getFaceValue();
+  public Die getDie2(){
+    return die2;
   }
 
   public void setDie1(int value){

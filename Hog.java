@@ -64,7 +64,7 @@ public class Hog {
         System.out.println();     
 
         // end round if either die was 1.
-        if(diePair.getDie1() == 1 || diePair.getDie2() == 1){
+        if(diePair.getDie1().getFaceValue() == 1 || diePair.getDie2().getFaceValue() == 1){
            myRound.setStopInd(true);
            System.out.println("Busted!\n");
         // pause game for 250 milliseconds
