@@ -28,7 +28,7 @@ import java.util.Scanner;
 public class Hog {
 	
   public static void main(String[] args){
-//Step a. Initializing values
+    //Step a. Initializing values
     int curRound = 1;
     String curPlayer = "Computer";
     int computerTotalScore = 0;
@@ -38,7 +38,7 @@ public class Hog {
     PairOfDice diePair = new PairOfDice();
     Round myRound;
          
-// Step b. outer while loop controls the game results
+    // Step b. outer while loop controls the game results
     while (computerTotalScore < 50 && humanTotalScore < 50){
         
       //printout related to round and status of game
@@ -47,7 +47,7 @@ public class Hog {
 
       curPlayer = (curRound%2 == 1 ? "Computer" : "Human");
       if (curPlayer == "Computer") {
-          myRound = new Round(curPlayer, computerTotalScore); 
+        myRound = new Round(curPlayer, computerTotalScore); 
       }	else {myRound = new  Round(curPlayer, humanTotalScore);}      
      
       System.out.println("Current player is: " + curPlayer);
@@ -55,68 +55,63 @@ public class Hog {
       System.out.println("Computer: " + computerTotalScore);
       System.out.println("You: " + humanTotalScore + "\n");
 
-// Step c. inner while loop controls round results
+      // Step c. inner while loop controls round results
       while(myRound.getStopInd() == false){
 
-// Step d. roll die at beginning of round
+        // Step d. roll die at beginning of round
         diePair.rollDice();
         System.out.println(diePair.toString());
         System.out.println();     
 
         // end round if either die was 1.
         if(diePair.getDie1().getFaceValue() == 1 || diePair.getDie2().getFaceValue() == 1){
-           myRound.setStopInd(true);
-           System.out.println("Busted!\n");
-        // pause game for 250 milliseconds
-           try {Thread.sleep(250);
-           } catch (Exception e) {}
-
-       }
+          myRound.setStopInd(true);
+          System.out.println("Busted!\n");
+          // pause game for 250 milliseconds
+          try {Thread.sleep(250);
+          } catch (Exception e) {}
+        }
 
         // if round continues add score to total and then 
         // determines if round should continue
         // according to criteria depending on type of player.
         if(myRound.getStopInd() == false){
-             myRound.addRoundScore(diePair.sumDice());
-             System.out.println(myRound.toString());
-             System.out.println("\n");
+          myRound.addRoundScore(diePair.sumDice());
+          System.out.println(myRound.toString());
+          System.out.println("\n");
 
-             if(myRound.getPlayer() == "Human" && myRound.getPotentialTotal() < 50){
-                  System.out.println("Take another turn (y/n)?");
-                  human_cont = scan.next().charAt(0);
-             }
-       
+          if(myRound.getPlayer() == "Human" && myRound.getPotentialTotal() < 50){
+            System.out.println("Take another turn (y/n)?");
+            human_cont = scan.next().charAt(0);
+          }
 
-             if(myRound.getPlayer() == "Human" && (human_cont == 'n' || 
-                 myRound.getPotentialTotal() >= 50)) {
-                  humanTotalScore = myRound.getPotentialTotal();
-                  myRound.setStopInd(true);
-             } else {if(myRound.getPlayer() == "Computer" && (myRound.getRoundScore() >= 20 || 
-                         myRound.getPotentialTotal() >= 50)) {
-                                 computerTotalScore = myRound.getPotentialTotal();
-                                 myRound.setStopInd(true);
-                     }
-             }
-        
+
+          if(myRound.getPlayer() == "Human" && (human_cont == 'n' || 
+            myRound.getPotentialTotal() >= 50)) {
+              humanTotalScore = myRound.getPotentialTotal();
+              myRound.setStopInd(true);
+          }else 
+          {
+            if(myRound.getPlayer() == "Computer" && (myRound.getRoundScore() >= 20 || 
+                       myRound.getPotentialTotal() >= 50)) {
+              computerTotalScore = myRound.getPotentialTotal();
+              myRound.setStopInd(true);
+            }
+          }
         }
-
       }
       // pause game for 300 milliseconds
       try {Thread.sleep(300);
       } catch (Exception e) {}
 
       curRound += 1;
-
     } 
 
-// Step e. final determination of winner.
+    // Step e. final determination of winner.
     System.out.println("The " + curPlayer + " has won!");
     System.out.println("Final Results:\n");
     System.out.println("Computer: " + computerTotalScore);
     System.out.println("You: " + humanTotalScore + "\n");
-
-
   }
-
 }
  
