@@ -16,6 +16,8 @@ public class PairOfDice {
   
   public PairOfDice() {
     currentTotal = 2;
+	die1.setFaceValue(1);
+	die2.setFaceValue(2);
   }
 
   public int getDie1() {
