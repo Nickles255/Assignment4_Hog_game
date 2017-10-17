@@ -48,8 +48,7 @@ public class Round
 
     // Returns string printing potential_total and round_total  
     public String toString() 
-       {String result = "Current Round: " + roundScore + "\n" + 
+        {String result = "Current Round: " + roundScore + "\n" + 
                         "Potential Total: " + totalScore; 
-       return result;}
-   
+        return result;}
 }
