@@ -15,9 +15,7 @@ public class PairOfDice {
   private int currentTotal;
   
   public PairOfDice() {
-    currentTotal = 2;
-	die1.setFaceValue(1);
-	die2.setFaceValue(1);
+    currentTotal = die1.getFaceValue() + die2.getFaceValue();
   }
 
   public Die getDie1() {
