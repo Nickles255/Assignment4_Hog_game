@@ -10,7 +10,6 @@
 */
 public class Round
 {
-    // int totalScore;
     String currentPlayer;
     int totalScore, roundScore = 0;
     boolean stopInd = false;
