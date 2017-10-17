@@ -35,7 +35,7 @@ public class Hog {
     int humanTotalScore = 0;
     char human_cont = 'y';
     Scanner scan = new Scanner(System.in);
-    PairOfDie diePair = new PairOfDie();
+    PairOfDice diePair = new PairOfDice();
     Round myRound;
          
 // Step b. outer while loop controls the game results
