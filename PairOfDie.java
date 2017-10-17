@@ -4,6 +4,8 @@
   * functionality includes get and set both die.
   * sum and roll die and a toString method.
   *  @author(s) Chien Lin, Lena Zheng, Qd Li
+  *  @version 1.0
+  *  @since 2017-10-15 
   *
   */
 
@@ -49,18 +51,10 @@ public class PairOfDie {
     return currentTotal;
   }  
   
-  // Returns string representation of sum of roll  
+// Returns string representation of sum of roll  
   public String toString() {
-	  String result = "Die1: " + die1.getFaceValue() + 
-	                  "; Die2: " + die2.getFaceValue(); 
-	  return result;
-  }
-
-  //returns true if one of the die is a 1
-  public boolean rolledOne(){
-    if (die1.getFaceValue() == 1 || die2.getFaceValue() == 1)
-      {return true;}
-    else
-      {return false;}
+      String result = "Die1: " + die1.getFaceValue() + 
+                      "; Die2: " + die2.getFaceValue(); 
+      return result;
   }
 }
